@@ -1,3 +1,4 @@
+require 'active_support'
 require 'active_support/core_ext'
 require 'json'
 require 'webrick'
@@ -36,7 +37,7 @@ router.draw do
   get Regexp.new("^/users$"), UserController, :index
 
   # uncomment this when you get to route params
-  # get Regexp.new("^/statuses/(?<id>\\d+)$"), StatusController, :show
+  get Regexp.new("^/statuses/(?<id>\\d+)$"), StatusController, :show
 end
 
 server.mount_proc '/' do |req, res|
